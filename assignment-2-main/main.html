@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>我的個人作品集</title>
+</head>
+<body>
+    <!-- header: 導覽列，可放Logo與選單名稱 -->
+    <header>
+        <div class="logo">個人網頁</div>
+        <nav>
+            <ul>
+                <li><a href="#hero">首頁</a></li>
+                <li><a href="#about">關於Wen Su</a></li>
+                <li><a href="#portfolio">作品集</a></li>
+                <li><a href="#contact">聯絡方式</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- hero: 主視覺區，可改大標題、簡介、行動宣言按鈕文字 -->
+        <section class="hero" id="hero">
+            <h1>你好，我是Wen Su</h1>
+            <p>加油！加油！ＧoGoGo</p>
+            <button onclick="showPopup()">我的行動宣言</button>
+            <div id="popup" class="popup" style="display:none;">
+                <div class="popup-content">
+                    <span class="close" onclick="closePopup()">&times;</span>
+                    <h2>我的行動宣言</h2>
+                    <p>勇敢追夢，持續學習，讓每一天都更進步！</p>
+                </div>
+            </div>
+        </section>
+        <!-- about: 關於我，左側放文字，右側放照片 -->
+        <section class="about" id="about">
+            <div class="about-text">
+                <h2>關於我</h2>
+                <p>我是一名聯合大學資訊管理學系的學生，我正在學習網頁設計，這是我的第一個網站！</p>
+            </div>
+            <div class="about-photo">
+                <img src="S__76980257.jpg" alt="Wen Su">
+            </div>
+        </section>
+        <!-- portfolio: 作品集，卡片式設計，每個作品可放圖片、標題、描述 -->
+        <section class="portfolio" id="portfolio">
+            <h2>作品集</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="作品1.png" alt="作品1">
+                    <h3>這是我做的教材</h3>
+                    <p>教材檔案</p>
+                </div>
+                <div class="card">
+                    <img src="作品2.png" alt="作品2">
+                    <h3>這是我做的教材</h3>
+                    <p>教材檔案</p>
+                </div>
+                <!-- 可複製card區塊新增更多作品 -->
+            </div>
+        </section>
+        
+    </main>
+    <!-- footer: 頁腳，可放版權宣告與社群連結 -->
+    <footer id="contact">
+        <div class="copyright">&copy; 2026 Wen Su. All rights reserved.</div>
+        <div class="social">
+            <a href="https://www.instagram.com/_wen_su/" target="_blank">Instagram @_wen_su</a> |
+            <a href="mailto:wenxuan91323@gmail.com">wenxuan91323@gmail.com</a>
+        </div>
+    </footer>
+    <script>
+        function showPopup() {
+            document.getElementById('popup').style.display = 'block';
+        }
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
