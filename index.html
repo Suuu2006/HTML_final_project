@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>關於我 ✿ 個人網站</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --coral:      #E8886C;
+      --coral-lt:   #F9C5B0;
+      --coral-pale: #FFF5F0;
+      --coral-card: #F0E0DA;
+      --brown:      #5C3D35;
+      --brown-lt:   #8C6459;
+      --cream:      #FDF8F5;
+      --white:      #FFFFFF;
+      --radius:     1.2rem;
+      --shadow:     0 4px 20px rgba(232,136,108,.15);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background: var(--cream);
+      color: var(--brown);
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    h1,h2,h3,h4 { font-family: 'Noto Serif TC', serif; color: var(--brown); }
+    a { color: var(--coral); text-decoration: none; }
+    a:hover { color: var(--brown); }
+
+    /* ── Navbar ── */
+    .navbar {
+      background: rgba(253,248,245,.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--coral-lt);
+      padding: .75rem 0;
+    }
+    .navbar-brand {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.1rem;
+      color: var(--coral) !important;
+      letter-spacing: .05em;
+    }
+    .nav-link {
+      color: var(--brown-lt) !important;
+      font-size: .9rem;
+      font-weight: 400;
+      padding: .25rem .8rem !important;
+      transition: color .2s;
+    }
+    .nav-link:hover { color: var(--coral) !important; }
+    .navbar-toggler { border-color: var(--coral-lt); }
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%23E8886C' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+
+    /* ── Section ── */
+    section { padding: 80px 0; }
+    section:nth-of-type(even) { background: var(--coral-pale); }
+
+    .sec-label {
+      display: inline-block;
+      font-size: .75rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--coral);
+      font-weight: 500;
+      margin-bottom: .4rem;
+    }
+    .sec-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      margin-bottom: 1.6rem;
+    }
+    .petal-divider {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin-bottom: 2.4rem;
+    }
+    .petal-divider::before,
+    .petal-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--coral-lt);
+    }
+    .petal-divider span { font-size: 1rem; }
+
+    /* ── Hero ── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #FFF0EA 0%, #FDE8DF 50%, #F9D5C8 100%);
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .petal {
+      position: absolute;
+      border-radius: 50% 0 50% 0;
+      opacity: .18;
+      animation: float 6s ease-in-out infinite;
+      background: var(--coral);
+    }
+    .petal:nth-child(1) { width:60px;height:60px;top:12%;left:8%;animation-delay:0s; }
+    .petal:nth-child(2) { width:40px;height:40px;top:60%;left:5%;animation-delay:1.5s; }
+    .petal:nth-child(3) { width:80px;height:80px;top:25%;right:10%;animation-delay:3s; }
+    .petal:nth-child(4) { width:30px;height:30px;top:70%;right:15%;animation-delay:.8s; }
+    .petal:nth-child(5) { width:50px;height:50px;top:85%;left:40%;animation-delay:2s; }
+    @keyframes float {
+      0%,100% { transform: translateY(0) rotate(0deg); }
+      50%      { transform: translateY(-18px) rotate(8deg); }
+    }
+
+    .hero-avatar {
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--white);
+      box-shadow: 0 8px 32px rgba(232,136,108,.3);
+    }
+    .hero-name {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: .04em;
+      margin-bottom: .2rem;
+    }
+    .hero-sub {
+      color: var(--coral);
+      font-size: 1rem;
+      letter-spacing: .12em;
+      margin-bottom: 1.2rem;
+    }
+    .hero-bio {
+      font-size: .95rem;
+      color: var(--brown-lt);
+      max-width: 480px;
+      line-height: 1.9;
+    }
+    .btn-coral {
+      background: var(--coral);
+      color: #fff;
+      border: none;
+      border-radius: 2rem;
+      padding: .55rem 1.6rem;
+      font-size: .9rem;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-weight: 400;
+      transition: background .2s, transform .15s;
+      display: inline-block;
+    }
+    .btn-coral:hover { background: var(--brown-lt); color: #fff; transform: translateY(-2px); }
+
+    /* ── Timeline ── */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: .6rem; top: 0; bottom: 0;
+      width: 2px;
+      background: var(--coral-lt);
+    }
+    .tl-item { position: relative; margin-bottom: 2rem; }
+    .tl-item::before {
+      content: '✿';
+      position: absolute;
+      left: -2.15rem; top: .1rem;
+      color: var(--coral);
+      font-size: .85rem;
+    }
+    .tl-year { font-size: .78rem; letter-spacing: .1em; color: var(--coral); font-weight: 500; margin-bottom: .15rem; }
+    .tl-title { font-family: 'Noto Serif TC', serif; font-size: 1.05rem; margin-bottom: .3rem; }
+
+    /* ── Skills ── */
+    .skill-item { margin-bottom: 1.2rem; }
+    .skill-name {
+      font-size: .88rem;
+      font-weight: 500;
+      margin-bottom: .35rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      width: 100%;
+    }
+    .skill-name > span {
+      color: var(--brown-lt);
+      font-weight: 300;
+      font-size: .82rem;
+      flex-shrink: 0;
+      margin-left: .5rem;
+    }
+    .skill-bar {
+      width: 100%;
+      height: 8px;
+      background: var(--coral-card);
+      border-radius: 4px;
+      overflow: hidden;
+      display: block;
+    }
+    .skill-fill {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, var(--coral-lt), var(--coral));
+      border-radius: 4px;
+      transition: width 1s ease;
+    }
+
+    /* ── Cards ── */
+    .cute-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.8rem;
+      border: 1px solid rgba(232,136,108,.12);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .cute-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(232,136,108,.22); }
+
+    .card-icon { font-size: 2rem; margin-bottom: .8rem; display: block; }
+    .card-tag {
+      font-size: .75rem;
+      background: var(--coral-pale);
+      color: var(--coral);
+      border-radius: 1rem;
+      padding: .15rem .6rem;
+      display: inline-block;
+      margin: .15rem .1rem;
+    }
+
+    /* ── Awards ── */
+    .award-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.2rem 1.4rem;
+      background: var(--white);
+      border-radius: var(--radius);
+      border-left: 4px solid var(--coral);
+      box-shadow: var(--shadow);
+      margin-bottom: 1rem;
+      height: 100%;
+    }
+    .award-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .award-name { font-weight: 500; margin-bottom: .2rem; }
+    .award-detail { font-size: .85rem; color: var(--brown-lt); }
+
+    /* ── Gallery ── */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.4rem;
+    }
+    .photo-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(232,136,108,.1);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .photo-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(232,136,108,.22); }
+    .photo-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-card-body {
+      padding: .85rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .photo-card-body .photo-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--coral);
+      flex-shrink: 0;
+    }
+    .photo-card-body p {
+      margin: 0;
+      font-size: .875rem;
+      color: var(--brown-lt);
+      font-weight: 400;
+    }
+
+    /* ── Contact ── */
+    #contact {
+      background: linear-gradient(135deg, #FDE8DF 0%, #FFF0EA 100%);
+      text-align: center;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--brown);
+      color: rgba(255,255,255,.6);
+      text-align: center;
+      font-size: .8rem;
+      padding: 1.6rem 0;
+    }
+    footer span { color: var(--coral-lt); }
+
+    /* ── RWD ── */
+    @media (max-width: 768px) {
+      section { padding: 56px 0; }
+      #hero { padding-top: 100px; text-align: center; }
+      .hero-bio { margin: 0 auto; }
+      .hero-avatar { margin: 0 auto 1.5rem; }
+      .photo-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+    }
+    @media (max-width: 576px) {
+      .hero-avatar { width: 160px; height: 160px; }
+      .hero-name { font-size: 1.8rem; }
+      .photo-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ── Reveal ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#hero">✿ 我的個人網站</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#hero">關於我</a></li>
+        <li class="nav-item"><a class="nav-link" href="#education">教育背景</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">技能</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">專案作品</a></li>
+        <li class="nav-item"><a class="nav-link" href="#awards">獎項</a></li>
+        <li class="nav-item"><a class="nav-link" href="#gallery">活動</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">聯絡我</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section id="hero">
+  <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+  <div class="petal"></div><div class="petal"></div>
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-4 text-center">
+        <img src="images/S__76980257.jpg" alt="本人照片" class="hero-avatar">
+      </div>
+      <div class="col-lg-8">
+        <p class="hero-sub">國立聯合大學・資訊管理學系</p>
+        <h1 class="hero-name">蘇文瑄</h1>
+        <p class="hero-bio">
+          嗨嗨～你好這是我的個人網站！我現在就讀於國立聯合大學資訊管理學系，
+          目前是大二生，即將步入專題地獄，希望可以在接下來這兩年中磨練自己💪 順利畢業！
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 教育背景 -->
+<section id="education">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-label">Education</p>
+      <h2 class="sec-title">教育背景</h2>
+      <div class="petal-divider"><span>✿</span></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-6 reveal">
+        <div class="timeline">
+          <div class="tl-item">
+            <p class="tl-year">2024 — 至今</p>
+            <p class="tl-title">國立聯合大學・資訊管理學系</p>
+          </div>
+          <div class="tl-item">
+            <p class="tl-year">2021 — 2024</p>
+            <p class="tl-title">新北市立清水高中・普通科</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 經驗與技能 -->
+<section id="skills">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-label">Experience &amp; Skills</p>
+      <h2 class="sec-title">經驗與專業技能</h2>
+      <div class="petal-divider"><span>✿</span></div>
+    </div>
+    <div class="row g-4">
+      <!-- 經驗 -->
+      <div class="col-lg-5 reveal">
+        <h4 style="font-size:1rem;color:var(--coral);margin-bottom:1.4rem;">實習經驗</h4>
+
+        <div class="cute-card mb-3" style="border-left:4px solid var(--coral);">
+          <p style="font-size:.78rem;color:var(--coral);margin-bottom:.3rem;">2023.08 — 2023.10</p>
+          <p style="font-weight:500;margin-bottom:.3rem;">國際青年實習培訓計劃</p>
+          <p style="font-size:.87rem;color:var(--brown-lt);margin-bottom:.6rem;">
+            在長榮海事博物館擔任導覽員，解說展覽內容並帶領小朋友們完成闖關活動。
+          </p>
+          <img src="images/0619.png" alt="國際青年實習培訓計劃" style="width:100%;border-radius:var(--radius);margin-bottom:.6rem;object-fit:cover;aspect-ratio:16/10;">
+          <span class="card-tag">團隊合作</span>
+          <span class="card-tag">溝通能力</span>
+          <span class="card-tag">解決問題</span>
+        </div>
+
+        <div class="cute-card" style="border-left:4px solid var(--coral-lt);">
+          <p style="font-size:.78rem;color:var(--coral);margin-bottom:.3rem;">2025.09 — 2025.12</p>
+          <p style="font-weight:500;margin-bottom:.3rem;">偏鄉課輔團隊・帶班老師</p>
+          <p style="font-size:.87rem;color:var(--brown-lt);margin-bottom:.6rem;">
+            日常協助上課順利進行，幫助大學伴解決問題，在期初、期中、期末的研習中幫助活動順利進行。
+          </p>
+          <img src="images/5AAA.JPEG" alt="教育部數位學伴計劃" style="width:100%;border-radius:var(--radius);margin-bottom:.6rem;object-fit:cover;aspect-ratio:16/10;">
+          <span class="card-tag">團隊合作</span>
+          <span class="card-tag">解決問題</span>
+          <span class="card-tag">人際關係</span>
+        </div>
+      </div>
+
+      <!-- 技能 -->
+      <div class="col-lg-7 reveal">
+        <h4 style="font-size:1rem;color:var(--coral);margin-bottom:1.4rem;">學習的專業技能</h4>
+        <div class="mb-4">
+          <div class="skill-item">
+            <div class="skill-name">HTML / CSS <span>75%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">JavaScript <span>70%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">PHP <span>60%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">SQL / MySQL <span>80%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+          </div>
+        </div>
+        <h4 style="font-size:.9rem;color:var(--brown-lt);margin-bottom:.8rem;">其他工具 &amp; 軟實力</h4>
+        <div>
+          <span class="card-tag">Bootstrap</span>
+          <span class="card-tag">Figma</span>
+          <span class="card-tag">Notion</span>
+          <span class="card-tag">Excel / Google Sheets</span>
+          <span class="card-tag">Canva</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 專案作品 -->
+<section id="projects">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-label">Projects</p>
+      <h2 class="sec-title">專案作品</h2>
+      <div class="petal-divider"><span>✿</span></div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 reveal">
+        <div class="cute-card d-flex flex-column h-100">
+          <span class="card-icon">🍰</span>
+          <h5 style="font-family:'Noto Serif TC',serif;font-size:1rem;margin-bottom:.5rem;">甜心小舖</h5>
+          <p style="font-size:.87rem;color:var(--brown-lt);margin-bottom:.8rem;">
+            以 HTML、CSS、Bootstrap 練習打造的甜點店網站，包含首頁、產品頁、購物車頁、管理員頁面等。
+          </p>
+          <img src="images/2026-06-19 11.05.30.png" alt="甜心小舖" style="width:100%;border-radius:var(--radius);margin-bottom:.8rem;object-fit:cover;aspect-ratio:16/10;">
+          <div class="mb-3">
+            <span class="card-tag">HTML</span>
+            <span class="card-tag">CSS</span>
+            <span class="card-tag">Bootstrap</span>
+            <span class="card-tag">JavaScript</span>
+            <span class="card-tag">PHP</span>
+          </div>
+          <a href="https://github.com/Suuu2006/114-2_PHP_finalProject.git" target="_blank" class="btn-coral mt-auto align-self-start" style="font-size:.82rem;padding:.35rem 1rem;">查看 Demo →</a>
+        </div>
+      </div>
+
+      <div class="col-md-6 reveal">
+        <div class="cute-card d-flex flex-column h-100">
+          <span class="card-icon">🌐</span>
+          <h5 style="font-family:'Noto Serif TC',serif;font-size:1rem;margin-bottom:.5rem;">第一個個人網站</h5>
+          <p style="font-size:.87rem;color:var(--brown-lt);margin-bottom:.8rem;">
+            以 HTML、CSS、Bootstrap 練習打造的個人網站，包含首頁、關於我、作品集等頁面。
+          </p>
+          <img src="images/截圖 2026-06-19 上午11.35.55.png" alt="第一個個人網站" style="width:100%;border-radius:var(--radius);margin-bottom:.6rem;object-fit:cover;aspect-ratio:16/10;">
+          <div class="mb-3">
+            <span class="card-tag">HTML</span>
+            <span class="card-tag">CSS</span>
+            <span class="card-tag">Bootstrap</span>
+            <span class="card-tag">JavaScript</span>
+            <span class="card-tag">PHP</span>
+          </div>
+          <a href="https://github.com/Suuu2006/assignment-2.git" target="_blank" class="btn-coral mt-auto align-self-start" style="font-size:.82rem;padding:.35rem 1rem;">查看 Demo →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 獲獎榮譽 -->
+<section id="awards">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-label">Awards &amp; Honors</p>
+      <h2 class="sec-title">獲獎與榮譽</h2>
+      <div class="petal-divider"><span>✿</span></div>
+    </div>
+    <div class="row g-3">
+      <div class="col-md-6 reveal">
+        <div class="award-item">
+          <div class="award-icon">🏅</div>
+          <div>
+            <p class="award-name">市長獎</p>
+            <p class="award-detail">新北市立清水高中・2024</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 reveal">
+        <div class="award-item" style="flex-direction:column;align-items:stretch;">
+          <div class="d-flex gap-3 mb-2">
+            <div class="award-icon">👭</div>
+            <div>
+              <p class="award-name">十人十一腳 亞軍</p>
+              <p class="award-detail">校慶運動會・2025.12</p>
+            </div>
+          </div>
+          <img src="images/截圖 2026-06-19 上午11.31.46.png" alt="十人十一腳 亞軍" style="width:100%;border-radius:var(--radius);object-fit:cover;aspect-ratio:16/9;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 活動照片 -->
+<section id="gallery">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-label">Gallery</p>
+      <h2 class="sec-title">參與活動</h2>
+      <div class="petal-divider"><span>✿</span></div>
+    </div>
+    <div class="photo-grid reveal">
+
+      <div class="photo-card">
+        <img src="images/IMG_8535.JPG" alt="資訊志工活動">
+        <div class="photo-card-body">
+          <div class="photo-dot"></div>
+          <p>資訊志工活動</p>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="images/0329.jpg" alt="學伴計劃與小學伴的合照">
+        <div class="photo-card-body">
+          <div class="photo-dot"></div>
+          <p>學伴計劃與小學伴的合照</p>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="images/0619-2.png" alt="國際青年實習培訓計劃">
+        <div class="photo-card-body">
+          <div class="photo-dot"></div>
+          <p>國際青年實習培訓計劃</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 聯絡我 -->
+<section id="contact">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-label">Contact</p>
+      <h2 class="sec-title">聯絡我</h2>
+      <div class="petal-divider"><span>✿</span></div>
+      <p style="font-size:.95rem;color:var(--brown-lt);max-width:480px;margin:0 auto 2rem;">
+        期待認識更多有趣的人！
+      </p>
+    </div>
+    <div class="row justify-content-center g-3 reveal">
+      <div class="col-auto">
+        <a href="mailto:wenxuan91323@gmail.com" class="btn-coral" style="background-color:#c58192;">✉ wenxuan91323@gmail.com</a>
+      </div>
+      <div class="col-auto">
+        <a href="https://www.instagram.com/_wen_su/" target="_blank" class="btn-coral" style="background:#c58192;">
+          📷 Instagram @_wen_su
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p class="mb-0">© 2026 Winnie Su <span>✿</span></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      const nav = document.getElementById('navMenu');
+      if (nav.classList.contains('show')) nav.classList.remove('show');
+    });
+  });
+</script>
+</body>
+</html>
